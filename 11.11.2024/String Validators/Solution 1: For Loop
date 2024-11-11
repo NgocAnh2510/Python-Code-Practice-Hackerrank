@@ -1,0 +1,23 @@
+if __name__ == '__main__':
+    s = input()
+    has_alphanumeric = False
+    has_alpha = False
+    has_digit = False
+    has_lower = False
+    has_upper = False
+    for c in s:
+        if c.isalnum():
+            has_alphanumeric = True
+        if c.isalpha():
+            has_alpha = True
+        if c.isdigit():
+            has_digit = True
+        if c.islower():
+            has_lower = True
+        if c.isupper():
+            has_upper = True
+    print(has_alphanumeric)
+    print(has_alpha)
+    print(has_digit)
+    print(has_lower)
+    print(has_upper)
