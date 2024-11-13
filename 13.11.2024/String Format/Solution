@@ -1,0 +1,46 @@
+def print_formatted(number):
+    # Ham tao list Octal
+    def octal_created(n: int) -> str:
+        remainder = ""
+        while n > 0:
+            remainder = str(n % 8) + remainder
+            n = n // 8
+        return remainder
+
+    # Ham tao list Hexadecimal (capitalized)
+    def hexadecimal_created(n: int) -> str:
+        dict_alpha = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
+        remainder = ""
+        while n > 0:
+            if n % 16 < 10:
+                remainder = str(n % 16) + remainder
+            else:
+                remainder = dict_alpha[(n % 16)] + remainder
+            n = n // 16
+        return remainder
+
+    # Ham tao list binary
+    def binary_created(n: int) -> int:
+        remainder = ""
+        while n > 0:
+            remainder = str(n % 2) + remainder
+            n = n // 2
+        return remainder
+
+    # Tao list decimal
+    decimal_list = [str(i) for i in range(1,number + 1)]    # Tao list octal
+    list_octal = [octal_created(i) for i in range(1,number + 1)]
+    list_hexadecimal = [hexadecimal_created(i) for i in range(1,number + 1)]
+    list_binary = [binary_created(i) for i in range(1,number + 1)]
+
+    width = len(list_binary[-1])
+
+    final_string = ""
+    for i in range(0, number):
+        final_string += decimal_list[i].rjust(width) + " " + list_octal[i].rjust(width) + " " + list_hexadecimal[i].rjust(width) + " " + list_binary[i].rjust(width) + "\n"
+
+    print(final_string)
+
+if __name__ == '__main__':
+    n = int(input())
+    print_formatted(n)
