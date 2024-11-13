@@ -1,0 +1,18 @@
+index = str(input())
+index_num = index.split()
+N = int(index_num[0])
+M = int(index_num[1])
+
+k = 1
+index_max = 0
+mat = ""
+for i in range(0, N // 2):
+    mat += (".|."*k).center(M,'-') + "\n"
+    k += 2
+index_max = k - 2
+mat += "WELCOME".center(M, '-') + "\n"
+for i in range(N // 2 + 1, N):
+    mat += (".|."*index_max).center(M,'-') + "\n"
+    index_max -= 2
+
+print(mat)
